@@ -1,0 +1,11 @@
+<mat-card class="word-card">
+    <h1 class="word-title" >{{ word.word }}</h1>
+    <mat-card-subtitle>{{ wordtype }}</mat-card-subtitle>
+
+    <p class="word-para">Definition: {{ definition }}</p>
+    <p class="word-para">Example: {{ example }}</p>
+
+    <h1 class="word-syllables" >{{ syllables }}</h1>
+
+    <button mat-raised-button color="warn" (click)="onBackClick()" >Back</button>
+</mat-card>

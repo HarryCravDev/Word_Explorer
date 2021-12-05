@@ -1,0 +1,32 @@
+.word-container {
+    background-color: lightslategrey;
+    height: 100%;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.word-card {
+    width: 25em;
+    padding: 2em;
+}
+
+.word-button {
+    margin: 1em 0.5em 0.5em 0;
+}
+
+.word-form-container {
+    display: flex;
+    flex-direction: column;   
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.word-button-container {
+    display: flex;
+    justify-content: space-around;
+}

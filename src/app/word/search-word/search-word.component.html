@@ -1,0 +1,30 @@
+<section class="word-container">
+    <mat-card *ngIf="!showWord" class="word-card">
+        <h1>Search by word</h1>
+        <p>Search for a word and get more information</p>
+
+        <form #loginInfo="ngForm" >
+            <!-- Work input -->
+            <mat-form-field>
+                <input 
+                    type="text"
+                    matInput
+                    ngModel
+                    name="word"
+                    placeholder="Word"
+                    #wordInput="ngModel"
+                    required>
+                    <mat-error *ngIf="wordInput.hasError('required')">Field must not be empty</mat-error>
+            </mat-form-field>
+        </form>
+
+        <div class="word-button-container">
+            <button mat-raised-button color="primary" [disabled]="loginInfo.invalid" (click)="onSearchWord(wordInput.value)" >Search</button>
+        </div>
+    </mat-card>
+
+
+
+    <app-word-detail   *ngIf="showWord" [word]="word" (backToWords)="onBackToWords()" ></app-word-detail>
+    <!-- <app-word-detail *ngIf="showWord" [word]="word" (backToWords)="onBackToWords()" ></app-word-detail> -->
+</section>

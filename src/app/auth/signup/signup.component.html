@@ -1,0 +1,62 @@
+<section class="login-container">
+    <mat-card class="login-card">
+        <h1>Signup</h1>
+        <!-- Login Form -->
+        <form class="login-form-container" #signupInfo="ngForm" (ngSubmit)="onSignup(signupInfo)" >
+            <!-- Email -->
+            <mat-form-field>
+                <input 
+                    type="email"
+                    matInput
+                    ngModel
+                    name="email"
+                    placeholder="Email"
+                    #emailInput="ngModel"
+                    email
+                    required>
+                    <mat-error *ngIf="signupInfo.hasError('required')">Field must not be empty</mat-error>
+                    <mat-error *ngIf="!signupInfo.hasError('required')">Invalid email</mat-error>
+            </mat-form-field>
+            
+            <!-- Password -->
+            <mat-form-field>
+                <input 
+                    type="password"
+                    matInput
+                    ngModel
+                    name="password"
+                    placeholder="Password"
+                    #passwordInput="ngModel"
+                    password
+                    required>
+                    <mat-error *ngIf="signupInfo.hasError('required')">Field must not be empty</mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input 
+                    type="password"
+                    matInput
+                    ngModel
+                    name="confirmPassword"
+                    placeholder="Confirm password"
+                    #confirmPasswordInput="ngModel"
+                    password
+                    #password
+                    required >
+                <mat-error >Passwords do not match.</mat-error>
+                <!-- <mat-error *ngIf="passwordError" >Passwords do not match.</mat-error> -->
+            </mat-form-field>
+
+            <!-- Submit button -->
+            <div class="button-container">    
+                <button 
+                    type="submit"
+                    mat-raised-button
+                    class="login-button"
+                    color=primary>
+                    Signup
+                </button>
+            </div>
+        </form>
+    </mat-card>
+</section>

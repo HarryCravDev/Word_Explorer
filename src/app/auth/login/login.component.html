@@ -1,0 +1,59 @@
+<section class="login-container">
+    <mat-card class="login-card">
+        <h1>Login</h1>
+        <!-- Login Form -->
+        <form class="login-form-container" #loginInfo="ngForm" (ngSubmit)="onLogin(loginInfo)" >
+            <!-- Email -->
+            <mat-form-field>
+                <input 
+                    type="email"
+                    matInput
+                    ngModel
+                    name="email"
+                    placeholder="Email"
+                    #emailInput="ngModel"
+                    email
+                    required>
+                    <mat-error *ngIf="emailInput.hasError('required')">Field must not be empty</mat-error>
+                    <mat-error *ngIf="!emailInput.hasError('required') && !incorrectLogin">Invalid email</mat-error>
+                    <mat-error *ngIf="incorrectLogin">Incorrect details</mat-error>
+            </mat-form-field>
+            
+            <!-- Password -->
+            <mat-form-field>
+                <input 
+                    type="password"
+                    matInput
+                    ngModel
+                    name="password"
+                    placeholder="Password"
+                    #passwordInput="ngModel"
+                    password
+                    required>
+                    <mat-error *ngIf="emailInput.hasError('required')">Field must not be empty</mat-error>
+                    <mat-error *ngIf="incorrectLogin">Incorrect details</mat-error>
+            </mat-form-field>
+
+            <!-- Submit button -->
+            <div class="button-container">
+                <button 
+                    type="submit"
+                    mat-raised-button
+                    class="login-button"
+                    [disabled]="loginInfo.invalid"
+                    color=primary>
+                    Login
+                </button>
+    
+                <button 
+                    type="submit"
+                    mat-raised-button
+                    class="login-button"
+                    color=primary
+                    routerLink="/signup">
+                    Signup
+                </button>
+            </div>
+        </form>
+    </mat-card>
+</section>

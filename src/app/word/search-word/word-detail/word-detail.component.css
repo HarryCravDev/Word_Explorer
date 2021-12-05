@@ -1,0 +1,16 @@
+.word-card {
+    width: 25em;
+    padding: 2em;
+}
+
+.word-title {
+    margin: 0;
+}
+
+.word-para {
+    margin: 5px 0;
+}
+
+.word-syllables {
+    margin-top: 10px;
+}

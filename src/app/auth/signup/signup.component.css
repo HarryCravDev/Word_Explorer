@@ -1,0 +1,31 @@
+.login-container {
+    background-color: lightslategrey;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    width: 25em;
+    padding: 2em;
+}
+
+.login-button {
+    margin: 1em 0.5em 0.5em 0;
+}
+
+.login-form-container {
+    display: flex;
+    flex-direction: column;   
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.form-error {
+    color: #f44336;
+}
