@@ -11,7 +11,17 @@ export class AuthService {
 
   async login(form: { email: string, password: string }) : Promise<Observable<any>> {
 
-      const res = await this.http.post('http://localhost:3000/auth', form);
+      const res = await this.http.post('http://localhost:3000/auth/login', form);
+
+      console.log("Response: ", res);
+      return res;
+  }
+
+  async signup(form: { email: string, password: string, confirmPassword: string }) : Promise<Observable<any>> {
+
+    console.log("Service: ", form);
+
+      const res = await this.http.post('http://localhost:3000/auth/signup', form);
 
       console.log("Response: ", res);
       return res;

@@ -7,5 +7,31 @@
 
     <h1 class="word-syllables" >{{ syllables }}</h1>
 
-    <button mat-raised-button color="warn" (click)="onBackClick()" >Back</button>
+    <div *ngIf="synonyms.length > 0">
+        <p>Synonyms</p>
+        <mat-action-list role="list">
+            <button mat-list-item *ngFor="let syn of synonyms" role="listitem" (click)="onSynonymClick($event)" >
+                {{ syn }}
+            </button>
+        </mat-action-list>
+    </div>
+    <!-- <div *ngIf="synonyms.length > 0">
+        <p>Synonyms</p>
+        <mat-list role="list">
+            <mat-list-item *ngFor="let syn of synonyms" role="listitem">{{ syn }}</mat-list-item>
+        </mat-list>
+    </div> -->
+
+
+    <button class="word-detail-button-next-word" mat-raised-button color="basic" (click)="newWordVersion()" >
+        Next word
+        <mat-icon>navigate_next</mat-icon>
+    </button>
+    <button class="word-detail-button" mat-raised-button color="warn" (click)="onBackClick()" >Back</button>
+
+
+    <!-- <mat-action-list>
+        <button mat-list-item> Save </button>
+        <button mat-list-item> Undo </button>
+      </mat-action-list> -->
 </mat-card>

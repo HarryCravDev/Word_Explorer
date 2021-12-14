@@ -24,7 +24,8 @@
     </mat-card>
 
 
-
-    <app-word-detail   *ngIf="showWord" [word]="word" (backToWords)="onBackToWords()" ></app-word-detail>
-    <!-- <app-word-detail *ngIf="showWord" [word]="word" (backToWords)="onBackToWords()" ></app-word-detail> -->
+    <!-- <div *ngIf="showWord && word" >
+        <app-word-detail *ngFor="let obj of word.results; let i = index"  [word]="obj" [index]="i" (backToWords)="onBackToWords()" ></app-word-detail>
+    </div> -->
+    <app-word-detail *ngIf="showWord" [word]="word" (backToWords)="onBackToWords()" ></app-word-detail>
 </section>

@@ -9,10 +9,13 @@ export class WordDetailComponent implements OnInit, OnDestroy {
 
   // @Input() word: {} | null = null;
   @Input() word: any;
+  index: number = 0;
+  arrLength: number = 0;
   syllables: string | undefined = "No syllables found for that word.";
   example: string | undefined = "";
   wordtype: string | undefined = "";
   definition: string | undefined = "";
+  synonyms: any = [];
 
   @Output() backToWords = new EventEmitter();
 
@@ -23,6 +26,10 @@ export class WordDetailComponent implements OnInit, OnDestroy {
     this.getExample();
     this.getWordtype();
     this.getDefinition();
+    this.arrLength = this.word.results.length;
+    this.synonyms = this.word.results[this.index].synonyms;
+
+    console.log("Synonyms: ", this.word);
   }
 
   ngOnDestroy() {}
@@ -31,11 +38,33 @@ export class WordDetailComponent implements OnInit, OnDestroy {
     this.backToWords.emit();
   }
 
+  onSynonymClick(event: any) {
+    const word = event.target.innerText;
+
+    
+  }
+
+  newWordVersion() {
+    if(this.index < (this.arrLength - 1)) this.index++;
+
+    this.getDefinition();
+    this.getSynonyms();
+  }
+
+  getSynonyms() {
+    this.synonyms = this.word.results[this.index]?.synonyms;
+
+    if(!this.synonyms){
+      this.synonyms = "No synonyms available."
+    }
+  }
+
+
   getDefinition() {
     const wordDefinitionArr = this.word?.results;
 
     if(wordDefinitionArr){
-      const wordDefinition = wordDefinitionArr[0].definition;
+      const wordDefinition = wordDefinitionArr[this.index].definition;
       return this.definition = wordDefinition;
     }
 

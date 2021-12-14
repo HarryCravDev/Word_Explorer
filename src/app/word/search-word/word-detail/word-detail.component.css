@@ -14,3 +14,11 @@
 .word-syllables {
     margin-top: 10px;
 }
+
+.word-detail-button-back {
+    margin: 0 0 0 5px;
+}
+
+.word-detail-button-next-word {
+    margin: 0 5px 0 0;
+}

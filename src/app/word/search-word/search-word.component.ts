@@ -8,7 +8,8 @@ import { WordsService } from '../words.service';
 })
 export class SearchWordComponent implements OnInit {
 
-  word: {} | null = null;
+  // word: {} | null = null;
+  word: any;
   showWord: boolean = false;
 
   constructor(private wordsService: WordsService) { }

@@ -33,7 +33,7 @@ export class WordsService {
     const options = {
       headers: {
         "x-rapidapi-host": "wordsapiv1.p.rapidapi.com",
-        "x-rapidapi-key": "6c0fed6d17msh5935458206f0d8ep1aff04jsn5631d0992f63"
+        "x-rapidapi-key": ""
       }
     };
 

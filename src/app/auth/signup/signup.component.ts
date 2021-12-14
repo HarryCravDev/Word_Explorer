@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -10,12 +11,12 @@ export class SignupComponent implements OnInit {
 
   @ViewChild('signupInfo') signupForm: any;
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
-  onSignup(form: NgForm): any {
+  async onSignup(form: NgForm): Promise<any> {
     const { email, password, confirmPassword } = form.value;
     
     // Check if passwords match
@@ -24,6 +25,14 @@ export class SignupComponent implements OnInit {
       this.signupForm.controls['password'].setErrors({'incorrect': true});
       return false;
     }
+
+    const user = await this.authService.signup(form.value);
+
+    user.subscribe(user => {
+      console.log("User Subscribe...: ", user);
+    });
+
+
   }
 
 }

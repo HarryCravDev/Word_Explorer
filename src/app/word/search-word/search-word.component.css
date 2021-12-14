@@ -1,6 +1,6 @@
 .word-container {
     background-color: lightslategrey;
-    height: 100%;
+    min-height: 100%;
 
     display: flex;
     justify-content: space-around;
